@@ -2,14 +2,14 @@
 
 Translate text in org-mode blocks, like so:
 
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 #+BEGIN_SRC translate :src en :dest de
 This is a test.
 #+END_SRC
 
 #+RESULTS:
 : Dies ist ein Test .
-#+END_QUOTE
+#+END_EXAMPLE
 
 ** Status
 
@@ -24,4 +24,4 @@ Each src block supports the following arguments:
 | :src     | Source language.      | #+BEGIN_SRC translate :src de  | 'auto' (for auto detection). |
 | :dest    | Destination language. | #+BEGIN_SRC translate :dest it | 'en' (for English).          |
 
-All defaults are customizable with `M-x customize-group RET ob-translate`.
+All defaults are customizable with =M-x customize-group RET ob-translate=.
