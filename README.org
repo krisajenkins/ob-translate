@@ -11,6 +11,18 @@ This is a test.
 : Dies ist ein Test .
 #+END_EXAMPLE
 
+Or with multiple result languages:
+
+#+BEGIN_EXAMPLE
+#+BEGIN_SRC translate :src en :dest de,fr
+This is a test.
+#+END_SRC
+
+#+RESULTS:
+| de | Dies ist ein Test . |
+| fr | Ceci est un essai . |
+#+END_EXAMPLE
+
 ** Status
 
 Alpha. It works for me, but my use-cases are fairly limited. Feedback welcomed.
@@ -19,9 +31,11 @@ Alpha. It works for me, but my use-cases are fairly limited. Feedback welcomed.
 
 Each block supports the following arguments:
 
-| Argument | Description           | Example                        | Default                      |
-|----------+-----------------------+--------------------------------+------------------------------|
-| =:src=     | Source language.      | =#+BEGIN_SRC translate :src de=  | 'auto' (for auto detection). |
-| =:dest=    | Destination language. | =#+BEGIN_SRC translate :dest it= | 'en' (for English).          |
+| Argument | Description              | Example                           | Default                      |
+|----------+--------------------------+-----------------------------------+------------------------------|
+| =:src=     | Source language.         | =#+BEGIN_SRC translate :src de=     | 'auto' (for auto detection). |
+| =:dest=    | Destination language(s). | =#+BEGIN_SRC translate :dest it,fr= | 'en' (for English).          |
+
+=:dest= may be a single country-code, or a comma-separated list.
 
 All defaults are customizable with =M-x customize-group RET ob-translate=.

@@ -61,11 +61,16 @@
 ;;;###autoload
 (defun org-babel-execute:translate (text params)
   "org-babel translation hook."
-  (let* ((src (or (cdr (assoc :src params))
-				  ob-translate:default-src))
-		 (dest (or (cdr (assoc :dest params))
-				   ob-translate:default-dest)))
-	(ob-translate:google-translate text src dest)))
+  (let ((src (or (cdr (assoc :src params))
+				 ob-translate:default-src))
+		(dest (or (cdr (assoc :dest params))
+				  ob-translate:default-dest)))
+	(if (string-match "," dest)
+		(mapcar (lambda (subdest)
+				  (list subdest
+						(ob-translate:google-translate src subdest text)))
+				(split-string dest ","))
+	  (ob-translate:google-translate src dest text))))
 
 (provide 'ob-translate)
 
