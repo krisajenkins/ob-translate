@@ -7,7 +7,7 @@
 ;; URL: https://github.com/krisajenkins/ob-translate
 ;; Created: 16th July 2013
 ;; Version: 0.1.0
-;; Package-Requires: ((google-translate "20130614.53"))
+;; Package-Requires: ((google-translate "0.4") (org "8"))
 
 ;;; Commentary:
 ;;
