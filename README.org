@@ -21,7 +21,7 @@ Each block supports the following arguments:
 
 | Argument | Description           | Example                        | Default                      |
 |----------+-----------------------+--------------------------------+------------------------------|
-| :src     | Source language.      | #+BEGIN_SRC translate :src de  | 'auto' (for auto detection). |
-| :dest    | Destination language. | #+BEGIN_SRC translate :dest it | 'en' (for English).          |
+| =:src=     | Source language.      | =#+BEGIN_SRC translate :src de=  | 'auto' (for auto detection). |
+| =:dest=    | Destination language. | =#+BEGIN_SRC translate :dest it= | 'en' (for English).          |
 
 All defaults are customizable with =M-x customize-group RET ob-translate=.
