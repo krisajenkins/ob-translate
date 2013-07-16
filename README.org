@@ -17,7 +17,7 @@ Alpha. It works for me, but my use-cases are fairly limited. Feedback welcomed.
 
 ** Options
 
-Each src block supports the following arguments:
+Each block supports the following arguments:
 
 | Argument | Description           | Example                        | Default                      |
 |----------+-----------------------+--------------------------------+------------------------------|
