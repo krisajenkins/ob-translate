@@ -6,7 +6,7 @@
 ;; Keywords: org babel translate translation
 ;; URL: https://github.com/krisajenkins/ob-translate
 ;; Created: 16th July 2013
-;; Version: 0.1.0
+;; Version: 0.1.1
 ;; Package-Requires: ((google-translate "0.4") (org "8"))
 
 ;;; Commentary:
@@ -31,7 +31,7 @@
   :group 'ob-translate
   :type 'string)
 
-(defun ob-translate:google-translate (text src dest)
+(defun ob-translate:google-translate (src dest text)
   "Translate TEXT from the SRC langauge to the DEST language."
   (let* ((text-stripped (replace-regexp-in-string "[[:space:]\n\r]+" " " text))
 		 (json (json-read-from-string
