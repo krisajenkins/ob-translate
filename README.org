@@ -1,0 +1,27 @@
+* Org Babel Translate
+
+Translate text in org-mode blocks, like so:
+
+#+BEGIN_QUOTE
+#+BEGIN_SRC translate :src en :dest de
+This is a test.
+#+END_SRC
+
+#+RESULTS:
+: Dies ist ein Test .
+#+END_QUOTE
+
+** Status
+
+Alpha. It works for me, but my use-cases are fairly limited. Feedback welcomed.
+
+** Options
+
+Each src block supports the following arguments:
+
+| Argument | Description           | Example                        | Default                      |
+|----------+-----------------------+--------------------------------+------------------------------|
+| :src     | Source language.      | #+BEGIN_SRC translate :src de  | 'auto' (for auto detection). |
+| :dest    | Destination language. | #+BEGIN_SRC translate :dest it | 'en' (for English).          |
+
+All defaults are customizable with `M-x customize-group RET ob-translate`.
