@@ -11,7 +11,7 @@ This is a test.
 : Dies ist ein Test .
 #+END_EXAMPLE
 
-Or with multiple result languages:
+Or with multiple destination languages:
 
 #+BEGIN_EXAMPLE
 #+BEGIN_SRC translate :src en :dest de,fr
