@@ -23,7 +23,6 @@ This is a test.
 | fr | Ceci est un essai . |
 #+END_EXAMPLE
 
-
 ** Installation
 
 If you're hooked up to [[http://melpa.milkbox.net/][MELPA]]:
@@ -33,7 +32,7 @@ M-x package-refresh-contents
 M-x package-install RET ob-translate
 #+END_EXAMPLE
 
-/Alternatively/, just grab the single =ob-translate.el= file and install that in your preferred way.
+Alternatively just grab the single =ob-translate.el= file and install that in your preferred way.
 
 ** Status
 
