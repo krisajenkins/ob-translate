@@ -72,6 +72,9 @@
 				(split-string dest ","))
 	  (ob-translate:google-translate src dest text))))
 
+;;;###autoload
+(add-to-list 'org-src-lang-modes '("translate" . text))
+
 (provide 'ob-translate)
 
 ;;; ob-translate.el ends here
