@@ -14,6 +14,7 @@
 ;; Supports translation of text blocks in org-mode.
 
 ;;; Code:
+(require 'org)
 (require 'ob)
 (require 'google-translate)
 
@@ -73,7 +74,8 @@
 	  (ob-translate:google-translate src dest text))))
 
 ;;;###autoload
-(add-to-list 'org-src-lang-modes '("translate" . text))
+(eval-after-load "org"
+ '(add-to-list 'org-src-lang-modes '("translate" . text)))
 
 (provide 'ob-translate)
 
