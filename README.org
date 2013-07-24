@@ -39,7 +39,7 @@ Alternatively just grab the single =ob-translate.el= file and install that in yo
 ** Status
 
 Beta. It works for me, but I'll bet there are some character encoding
-issues in there for some languages. Please file an issue is you spot a
+issues in there for some languages. Please file an issue if you spot a
 problem.
 
 ** Options
