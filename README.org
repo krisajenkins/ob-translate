@@ -14,13 +14,15 @@ This is a test.
 Or with multiple destination languages:
 
 #+BEGIN_EXAMPLE
-#+BEGIN_SRC translate :src en :dest de,fr
+#+BEGIN_SRC translate :src en :dest de,fr,ar,ja
 This is a test.
 #+END_SRC
 
 #+RESULTS:
 | de | Dies ist ein Test . |
 | fr | Ceci est un essai . |
+| ar | هذا هو الاختبار.    |
+| ja | これはテストです。  |
 #+END_EXAMPLE
 
 ** Installation
@@ -36,7 +38,9 @@ Alternatively just grab the single =ob-translate.el= file and install that in yo
 
 ** Status
 
-Alpha. It works for me, but my use-cases are fairly limited. Feedback welcomed.
+Beta. It works for me, but I'll bet there are some character encoding
+issues in there for some languages. Please file an issue is you spot a
+problem.
 
 ** Options
 
