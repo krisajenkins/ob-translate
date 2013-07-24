@@ -1,6 +1,6 @@
 * Org Babel Translate
 
-Translate text in org-mode blocks, like so:
+Translate text in Emacs' org-mode blocks, like so:
 
 #+BEGIN_EXAMPLE
 #+BEGIN_SRC translate :src en :dest de
