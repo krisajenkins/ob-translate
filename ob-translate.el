@@ -36,27 +36,18 @@
   "Translate TEXT from the SRC langauge to the DEST language."
   (let* ((text-stripped (replace-regexp-in-string "[[:space:]\n\r]+" " " text))
 		 (json (json-read-from-string
-				(google-translate-insert-nulls
+				(google-translate--insert-nulls
 				 ;; Google Translate won't let us make a request unless we
 				 ;; send a "User-Agent" header it recognizes.
 				 ;; "Mozilla/5.0" seems to work.
 				 (let ((url-request-extra-headers
 						'(("User-Agent" . "Mozilla/5.0"))))
-				   (google-translate-http-response-body
-					(google-translate-format-request-url
-					 `(("client" . "t")
-					   ("ie"     . "UTF-8")
-					   ("oe"     . "UTF-8")
-					   ("sl"     . ,src)
-					   ("tl"     . ,dest)
-					   ("text"   . ,text-stripped))))))))
-		 (text-phonetic (mapconcat #'(lambda (item) (aref item 3))
-								   (aref json 0) ""))
-		 (translation (mapconcat #'(lambda (item) (aref item 0))
-								 (aref json 0) ""))
-		 (translation-phonetic (mapconcat #'(lambda (item) (aref item 2))
-										  (aref json 0) ""))
-		 (dict (aref json 1)))
+				   (google-translate--request src dest text-stripped))
+                 )))
+         (text-phonetic (google-translate-json-text-phonetic json))
+		 (translation (google-translate-json-translation json))
+         (translation-phonetic (google-translate-json-translation-phonetic json))
+		 (dict (google-translate-json-detailed-definition json)))
 	translation))
 
 ;;;###autoload
