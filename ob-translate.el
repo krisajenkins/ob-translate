@@ -6,8 +6,8 @@
 ;; Keywords: org babel translate translation
 ;; URL: https://github.com/krisajenkins/ob-translate
 ;; Created: 16th July 2013
-;; Version: 0.1.2
-;; Package-Requires: ((google-translate "0.4") (org "8"))
+;; Version: 0.1.3
+;; Package-Requires: ((google-translate "0.11") (org "8"))
 
 ;;; Commentary:
 ;;
