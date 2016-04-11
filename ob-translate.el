@@ -60,12 +60,15 @@
 	translation))
 
 ;;;###autoload
-(defun org-babel-execute:translate (text params)
+(defun org-babel-execute:translate (body params)
   "org-babel translation hook."
   (let ((src (or (cdr (assoc :src params))
 				 ob-translate:default-src))
 		(dest (or (cdr (assoc :dest params))
-				  ob-translate:default-dest)))
+				  ob-translate:default-dest))
+		(text (or (cddr (assoc :var params))
+				  body
+				  "")))
 	(if (string-match "," dest)
 		(mapcar (lambda (subdest)
 				  (list subdest
