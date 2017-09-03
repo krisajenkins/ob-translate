@@ -19,6 +19,11 @@
 (require 'ob)
 (require 'google-translate)
 
+(defvar org-babel-default-header-args:translate '((:results . "silent raw")
+                                                  (:exports . "results")
+                                                  (:eval . "no-export"))
+  "Default arguments for evaluating a translate source block.")
+
 (defgroup ob-translate nil
   "Translate org-mode blocks."
   :group 'org)
