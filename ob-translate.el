@@ -35,38 +35,38 @@
 (defun ob-translate:google-translate (src dest text)
   "Translate TEXT from the SRC langauge to the DEST language."
   (let* ((text-stripped (replace-regexp-in-string "[[:space:]\n\r]+" " " text))
-		 (json (json-read-from-string
-				(google-translate--insert-nulls
-				 ;; Google Translate won't let us make a request unless we
-				 ;; send a "User-Agent" header it recognizes.
-				 ;; "Mozilla/5.0" seems to work.
-				 (let ((url-request-extra-headers
-						'(("User-Agent" . "Mozilla/5.0"))))
-				   (google-translate--request src dest text-stripped))
+         (json (json-read-from-string
+                (google-translate--insert-nulls
+                 ;; Google Translate won't let us make a request unless we
+                 ;; send a "User-Agent" header it recognizes.
+                 ;; "Mozilla/5.0" seems to work.
+                 (let ((url-request-extra-headers
+                        '(("User-Agent" . "Mozilla/5.0"))))
+                   (google-translate--request src dest text-stripped))
                  )))
          (text-phonetic (google-translate-json-text-phonetic json))
-		 (translation (google-translate-json-translation json))
+         (translation (google-translate-json-translation json))
          (translation-phonetic (google-translate-json-translation-phonetic json))
-		 (dict (google-translate-json-detailed-definition json)))
-	translation))
+         (dict (google-translate-json-detailed-definition json)))
+    translation))
 
 ;;;###autoload
 (defun org-babel-execute:translate (text params)
   "org-babel translation hook."
   (let ((src (or (cdr (assoc :src params))
-				 ob-translate:default-src))
-		(dest (or (cdr (assoc :dest params))
-				  ob-translate:default-dest)))
-	(if (string-match "," dest)
-		(mapcar (lambda (subdest)
-				  (list subdest
-						(ob-translate:google-translate src subdest text)))
-				(split-string dest ","))
-	  (ob-translate:google-translate src dest text))))
+                 ob-translate:default-src))
+        (dest (or (cdr (assoc :dest params))
+                  ob-translate:default-dest)))
+    (if (string-match "," dest)
+        (mapcar (lambda (subdest)
+                  (list subdest
+                        (ob-translate:google-translate src subdest text)))
+                (split-string dest ","))
+      (ob-translate:google-translate src dest text))))
 
 ;;;###autoload
 (eval-after-load "org"
- '(add-to-list 'org-src-lang-modes '("translate" . text)))
+  '(add-to-list 'org-src-lang-modes '("translate" . text)))
 
 (provide 'ob-translate)
 
