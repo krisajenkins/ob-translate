@@ -25,6 +25,37 @@ This is a test.
 | ja | これはテストです。  |
 #+END_EXAMPLE
 
+When the text is long lines, will show result in example block:
+
+#+begin_src translate :src en :dest de,fr,ar,ja
+When you're a kid, you can smile a lot, but when you grow, when you know a lot,
+you find that world is just mess.
+#+end_src
+
+#+RESULTS[(2020-06-01 14:14:03) bc13a0207523f2b0cbe83bc63551b5a11d0300ae]:
+#+begin_example
+language: [de]
+
+Wenn Sie ein Kind sind, können Sie viel lächeln, aber wenn Sie wachsen, wenn Sie
+viel wissen, finden Sie, dass Welt nur Chaos.
+
+language: [fr]
+
+Quand vous êtes un enfant, vous pouvez sourire beaucoup, mais quand tu seras
+grand, quand vous savez beaucoup, vous trouverez ce monde est juste gâchis.
+
+language: [ar]
+
+عندما كنت طفلا، يمكن أن تبتسم كثيرا، ولكن عندما تكبر، وعندما تعرف الكثير، تجد أن
+العالم هو الفوضى عادل.
+
+language: [ja]
+
+あなたは子供ができたら、あなたは多くのことを知っているとき、あなたは世界はただ混
+乱であることがわかり、あなたは多くのことを笑顔することができますが、大きくなった
+ら。
+#+end_example
+
 ** Installation
 
 If you're hooked up to [[http://melpa.milkbox.net/][MELPA]]:
