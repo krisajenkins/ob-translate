@@ -61,10 +61,24 @@
                   body
                   "")))
     (if (string-match "," dest)
-        (mapcar (lambda (subdest)
-                  (list subdest
-                        (ob-translate:google-translate src subdest text)))
-                (split-string dest ","))
+        (if (> (length text) 80)
+            ;; for long text, we use Org example block.
+            (with-temp-buffer
+              (insert (mapconcat
+                       (lambda (subdest)
+                         (concat (format "language: [%s]" subdest) "\n\n"
+                                 (ob-translate:google-translate src subdest text)
+                                 "\n"))
+                       (split-string dest ",")
+                       "\n"))
+              ;; hard wrap long lines
+              (fill-region (point-min) (point-max))
+              (buffer-substring-no-properties (point-min) (point-max)))
+          ;; Org will show "list" structure as Org table.
+          (mapcar (lambda (subdest)
+                    (list subdest
+                          (ob-translate:google-translate src subdest text)))
+                  (split-string dest ",")))
       (ob-translate:google-translate src dest text))))
 
 ;;;###autoload
